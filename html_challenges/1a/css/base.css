@@ -1,3 +1,5 @@
+/* Basic flex layout, defaulting to desktop mode values */
+
 .dp-wrapper {
     display: flex;
     flex: auto;
@@ -7,15 +9,15 @@
 
 .dp-header {
     display: flex;
-    flex: 0 0 34px;
-    background-color: palevioletred;
+    flex: 0 0;
+    background-color: rgb(255, 181, 206);
     padding: 16px;
 }
 
 .dp-footer {
     display: flex;
-    flex: 0 0 36px;
-    background-color: peachpuff;
+    flex: 0 0;
+    background-color: rgb(255, 183, 120);
     padding: 16px;
 }
 
@@ -28,7 +30,7 @@
 .dp-left-box {
     display: flex;
     flex: 0 0 200px;
-    background-color: lightgreen;
+    background-color: rgb(183, 255, 183);
     padding: 16px;
 }
 
@@ -43,6 +45,6 @@
 .dp-right-box {
     display: flex;
     flex: 0 0 200px;
-    background-color: lightcoral;
+    background-color: rgb(255, 105, 150);
     padding: 16px;
 }
