@@ -3,6 +3,14 @@
     .dp-content {
         flex-direction: column;
     }
+
+    .dp-left-box {
+        flex: 0 0;
+    }
+
+    .dp-right-box {
+        flex: 0 0;
+    }
 }
 
 /* According to W3Schools, a reasonable modern set of breakpoints looks like this: */

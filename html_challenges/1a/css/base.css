@@ -2,18 +2,21 @@
     display: flex;
     flex: auto;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .dp-header {
     display: flex;
     flex: 0 0 34px;
     background-color: palevioletred;
+    padding: 16px;
 }
 
 .dp-footer {
     display: flex;
     flex: 0 0 36px;
     background-color: peachpuff;
+    padding: 16px;
 }
 
 .dp-content {
@@ -24,9 +27,9 @@
 
 .dp-left-box {
     display: flex;
-    flex: none;
-    flex-basis: 200px;
+    flex: 0 0 200px;
     background-color: lightgreen;
+    padding: 16px;
 }
 
 .dp-main-box {
@@ -34,10 +37,12 @@
     flex: 1 1 100%;
     flex-direction: column;
     background-color: lightblue;
+    padding: 16px;
 }
 
 .dp-right-box {
     display: flex;
     flex: 0 0 200px;
     background-color: lightcoral;
+    padding: 16px;
 }
