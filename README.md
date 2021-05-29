@@ -5,3 +5,4 @@ Log
 - Initialised repo with folders for the first set of challenges
 - Merged exercise 1a
 - Merged exercise 1b
+- Merged exercise 2
