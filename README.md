@@ -6,3 +6,4 @@ Log
 - Merged exercise 1a
 - Merged exercise 1b
 - Merged exercise 2
+- Fixed a problem with exercise 2
