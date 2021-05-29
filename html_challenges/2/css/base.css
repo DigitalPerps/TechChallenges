@@ -1,0 +1,57 @@
+/* arbitrary container element */
+
+.dp-widget-container {
+    position: absolute;
+    display: flex;
+    border: 1px solid red;
+    width: 800px;
+    height: 600px;    
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+/* widget styling, includes the border styling and flex-centered content */
+
+.dp-widget-da {
+    display: flex;
+    border: 4px dotted darkslategrey;
+    border-radius: 8px;
+    width: 640px;
+    height: 350px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+/* notification (error) state child div */
+.dp-widget-da-notify {
+    display: flex;
+    background-color: rgba(209, 36, 94, 0.0);
+    padding: 142px 260px;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+/* notification (error) state child div pseudo element to present text */
+.dp-widget-da-notify::before {
+    display:block;
+    content: "Invalid file";
+    color: rgba(0,0,0,0.0);
+    transition-property: color;
+    transition-duration: 0.5s;
+}
+
+/* hover-state changes */
+
+.dp-widget-da:hover {
+    cursor: no-drop;
+}
+
+.dp-widget-da:hover > .dp-widget-da-notify {
+    background-color: rgb(245, 210, 226);
+}
+
+.dp-widget-da:hover > .dp-widget-da-notify::before {
+    color: rgba(0,0,0,1.0);
+}
