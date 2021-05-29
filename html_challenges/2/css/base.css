@@ -1,5 +1,4 @@
 /* arbitrary container element */
-
 .dp-widget-container {
     position: absolute;
     display: flex;
@@ -12,7 +11,6 @@
 }
 
 /* widget styling, includes the border styling and flex-centered content */
-
 .dp-widget-da {
     display: flex;
     border: 4px dotted darkslategrey;
@@ -22,24 +20,46 @@
     align-items: center;
     justify-content: center;
     align-content: center;
+    flex-direction: column;
 }
 
-/* notification (error) state child div */
-.dp-widget-da-notify {
+/* widget background styling, includes flex-centered content */
+.dp-widget-content {
     display: flex;
-    background-color: rgba(209, 36, 94, 0.0);
-    padding: 142px 260px;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    width: 610px;
+    height: 322px;
+    background-color: rgb(245, 210, 226, 0.0);
+
     transition-property: background-color;
     transition-duration: 0.5s;
 }
 
-/* notification (error) state child div pseudo element to present text */
-.dp-widget-da-notify::before {
-    display:block;
-    content: "Invalid file";
+/* widget labels */
+
+.dp-widget-content > .da-widget-error {
+    overflow: hidden;
+    max-height: 0px;
+    font-weight: bold;
     color: rgba(0,0,0,0.0);
     transition-property: color;
     transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.dp-widget-content > .da-widget-label {
+    overflow: hidden;
+    max-height: 1.5em;
+    font-weight: bold;
+    color: rgba(0,0,0,1.0);
+    transition-property: color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
 }
 
 /* hover-state changes */
@@ -48,10 +68,16 @@
     cursor: no-drop;
 }
 
-.dp-widget-da:hover > .dp-widget-da-notify {
-    background-color: rgb(245, 210, 226);
+.dp-widget-da:hover > .dp-widget-content {
+    background-color: rgb(245, 210, 226, 1.0);
 }
 
-.dp-widget-da:hover > .dp-widget-da-notify::before {
+.dp-widget-da:hover > .dp-widget-content > .da-widget-error {
     color: rgba(0,0,0,1.0);
+    max-height: 1.5em;
+}
+
+.dp-widget-da:hover > .dp-widget-content > .da-widget-label {
+    color: rgba(0,0,0,0.0);
+    max-height: 0px;
 }
