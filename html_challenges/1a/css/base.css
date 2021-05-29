@@ -1,0 +1,47 @@
+.dp-wrapper {
+    flex: auto;
+    flex-direction: column;
+    height: calc(100vh - 2px);
+    border: 1px solid red;
+}
+
+.dp-header {
+    display: flex;
+    flex: 0 0;
+    background-color: palevioletred;
+}
+
+.dp-footer {
+    display: flex;
+    flex: 0 0;
+    background-color: peachpuff;
+}
+
+.dp-content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    flex-basis: auto;
+}
+
+.dp-left-box {
+    display: flex;
+    flex: none;
+    flex-basis: 200px;
+    background-color: lightgreen;
+}
+
+.dp-main-box {
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    background-color: lightblue;
+    min-height: calc(100vh - 40px);
+}
+
+.dp-right-box {
+    display: flex;
+    flex: none;
+    flex-basis: 200px;
+    background-color: lightcoral;
+}

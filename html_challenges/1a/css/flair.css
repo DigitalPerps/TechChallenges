@@ -1,0 +1,34 @@
+.dp-main-box {
+    position: relative;
+}
+
+input.dp-content-toggle {
+    position: absolute;
+    top: 6px;
+    right: 160px;
+}
+input.dp-content-toggle + label {
+    position: absolute;
+    top: 4px;
+    right: 12px;
+}
+
+.dp-main-box > div {
+    margin: 25px;
+}
+
+.dp-standard-content {
+    display: block;
+}
+
+.dp-lorem-ipsum {
+    display: none;
+}
+
+.dp-content-toggle:checked ~ .dp-lorem-ipsum {
+    display: block;
+}
+
+.dp-content-toggle:checked ~ .dp-standard-content {
+    display: none;
+}
