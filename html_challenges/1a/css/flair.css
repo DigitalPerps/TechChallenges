@@ -1,3 +1,5 @@
+/* a toggle box at the top right of the main box */
+
 .dp-main-box {
     position: relative;
 }
@@ -13,9 +15,14 @@ input.dp-content-toggle + label {
     right: 12px;
 }
 
-.dp-main-box > div {
-    margin: 25px;
+/* style definitions for the two switchable content boxes */
+
+.dp-main-box > div.dp-lorem-ipsum {
+    margin: 22px;
 }
+
+/* css "logic" for showing/hiding sibling div tags based on checkbox value */
+/* note that sadly I can't wrap the checkbox in a label to make it easier to click, so this would really require a bit of supplimentary javascript IRL */
 
 .dp-standard-content {
     display: block;
@@ -31,4 +38,21 @@ input.dp-content-toggle + label {
 
 .dp-content-toggle:checked ~ .dp-standard-content {
     display: none;
+}
+
+/* text styling, since I've used a reset sheet */
+
+h3 {
+    font-size: 16px;
+    color: darkslateblue;
+    margin-bottom: 2px;
+}
+
+h5 {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 4px;
 }
