@@ -1,0 +1,14 @@
+/* Breakpoint chosen by "feel" for the weighting of the two 200px sidebars */
+@media only screen and (max-width: 999px) {
+    .dp-content {
+        flex-direction: column;
+    }
+
+    .dp-left-box {
+        flex: 0 0;
+    }
+
+    .dp-right-box {
+        flex: 0 0;
+    }
+}
