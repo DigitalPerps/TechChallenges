@@ -21,12 +21,32 @@
         <div class="dp-dropdown-wrapper">
             <select class="dp-custom-dropdown" value="1">
                 <!-- <option value="1">Tesla</option> -->
-                <option value="1">Toyota</option> <!-- TODO: Raise with PM re: number 1 car maker -->
-                <option value="2">Volvo</option>
-                <option value="3">Mercedes</option>
+                <option id="unique" value="1">Toyota</option> <!-- TODO: Raise with PM re: number 1 car maker -->
+                <option id="unique" value="2">Volvo</option>
+                <option id="unique" value="3">Mercedes</option>
             </select>
         </div>
         
-        <!-- <script src="" async defer></script> -->
+        <script src="https://kit.fontawesome.com/29bb0bf26c.js" crossorigin="anonymous"></script>
+
+        <script>
+            // Javascript 
+
+            var clearSelectedOption = () => {
+                document.querySelectorAll('option.dp-selected').forEach((value, key) => {
+                    value.classList.remove("dp-selected");
+                });
+            };
+
+            var selectOption = (value) => {
+                var selected = document.querySelector('option[value="'+ value +'"]');
+                selected.classList.add('dp-selected');
+            };
+
+            document.querySelector('select.dp-custom-dropdown').addEventListener('change', event => {
+                clearSelectedOption();
+                selectOption(event.target.value);
+            });
+        </script>
     </body>
 </html>

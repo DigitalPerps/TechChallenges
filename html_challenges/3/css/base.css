@@ -6,17 +6,41 @@ select.dp-custom-dropdown {
     font-size: large;
     border: 1px solid #999;
     outline-style: none;
+    color: rgb(53, 53, 53);
     background-color: white;
+    cursor: pointer;
 }
 
 .dp-custom-dropdown > option {
+    position: relative;
+    color: rgb(53, 53, 53);
     background-color: white;
     border: 1px solid #999;
-    position: relative;
+    cursor: pointer;
 }
+
+/*
+#unique {
+    background-color: black;
+}
+#unique:hover {
+    background-color: red;
+}
+#unique::selection {
+    background-color: red;
+}
+
+.dp-custom-dropdown > option.dp-selected {
+}
+*/
+
+/* .dp-custom-dropdown > option:hover { */
+/*     background-color: #999; */
+/* } */
 
 .dp-custom-dropdown:focus-visible {
     border: 1px solid #999;
+    cursor: pointer;
 }
 
 .dp-dropdown-wrapper {
@@ -27,31 +51,22 @@ select.dp-custom-dropdown {
     width: fit-content;
 }
 
-.dp-dropdown-wrapper::after {
-    display: block;
-    content: "▼";
+.dp-dropdown-wrapper::after {    
+    display: flex;
     position: absolute;
     top: 1px;
     right: 1px;
     bottom: 1px;
-    width: 16px;
+    width: 17px;
+    text-align: left;
     pointer-events: none;
-    color: white;
-    margin-top: -4px;
-    font-stretch: expanded;
-}
-
-select.dp-custom-dropdown {}
-
-.dp-dropdown-wrapper::before {
-    display: block;
-    content: "▼";
-    position: absolute;
-    top: 1px;
-    right: 1px;
-    bottom: 1px;
-    width: 16px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f078";
+    color: rgb(53, 53, 53);
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-direction: column;
     background-color: white;
-    pointer-events: none;
-    font-stretch: ultra-expanded;
+    justify-content: center;
 }
