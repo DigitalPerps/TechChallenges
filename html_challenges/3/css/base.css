@@ -1,0 +1,136 @@
+body {
+    padding: 50px; /* lazily positioning the widget */
+}
+
+/* add a container since we'll create multiple instances of the select box
+    for demo purposes */
+.dp-widget-container {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 650px;
+    border: 1px solid rebeccapurple;
+    justify-content: space-between;
+
+}
+
+@media only screen and (max-width: 999px) {
+    .dp-widget-container {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
+/* a wrapper for the browser's standard select box */
+.dp-dropdown-wrapper {
+    position: relative;
+    display: block;
+    flex: 1 1 auto;
+
+    width: 200px;
+    max-width: 200px;
+    max-height: 40px;
+
+    padding: 0;
+    margin: 4px;    
+
+    cursor: pointer;
+}
+
+/* the chevron we will place over the standard select box arrow */
+.dp-dropdown-wrapper::after {    
+    display: block;
+    position: absolute;
+    content: " ";
+    top: 6px;
+    right: 4px;
+    width: 36px;
+    height: 30px;
+    background-image: url(../img/chevron.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+/* dropdown styling */
+select.dp-custom-dropdown {
+    position: absolute;
+    border: none;
+    outline-style: none;
+
+    color: rgb(53, 53, 53);
+    background-color: white;
+
+    border: 1px solid #505050;
+    border-radius: 0 !important;
+
+    padding: 10px 10px 8px 10px;
+
+    width: 100%; /* supersticiously force the width wider than the wrapper to hide the default arrow */
+    cursor: pointer;
+}
+
+/* this is the style used when the dropdown changes "modes" thanks to our html property manipulation via JS */
+select.dp-custom-dropdown:focus {
+    cursor: pointer;
+    overflow: visible;
+    margin-top: 39px;
+
+    border: none;
+
+    padding: 0px;
+
+    max-width: 100%;
+    z-index: 1;
+}
+
+select.dp-custom-dropdown:focus > option {
+    padding: 11px 6px 8px 14px;
+    min-height: unset;
+}
+
+/* extend the border */
+
+select.dp-custom-dropdown:focus > option {
+    border-left: 1px solid #505050;
+    border-right: 1px solid #505050;
+}
+
+select.dp-custom-dropdown:focus > option:first-of-type {
+    border-top: 1px solid #505050;
+}
+
+select.dp-custom-dropdown:focus > option:last-of-type {
+    border-bottom: 1px solid #505050;
+}
+
+/* show a fake "placeholder text" of the current value, since our dropdown box has become a franken- 
+        multi-select box, allowing us more styling options, with full select box functionality */
+select.dp-custom-dropdown:focus::before {
+    display: block;
+    position: absolute;
+    content: var(--value, "Select");
+
+    pointer-events: none;
+    cursor: pointer;
+
+    top: -39px;
+    left: 0px;
+
+    width: calc(100% - 22px);
+    height: 38px;
+
+    border: 1px solid #505050;
+    border-bottom: none;
+
+    padding: 11px 6px 8px 14px;
+}
+
+
+select.dp-custom-dropdown > option:hover {
+    background-color: #999;
+}
