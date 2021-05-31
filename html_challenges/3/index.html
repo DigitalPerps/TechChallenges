@@ -19,29 +19,59 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="dp-dropdown-wrapper">
-            <select class="dp-custom-dropdown">
-                <option value="0">Tesla</option>
-                <option value="1" selected>Toyota</option> <!-- TODO: Raise with PM re: number 1 car maker -->
-                <option value="2">Volvo</option>
-                <option value="3">Mercedes</option>
-            </select>
-        </div>
+        <form class="dp-widget-container">
+
+            <div class="dp-dropdown-wrapper">
+                <select class="dp-custom-dropdown">
+                    <option>Tesla</option>
+                    <option selected>Toyota</option> <!-- TODO: Raise with PM re: number 1 car maker -->
+                    <option>Volvo</option>
+                    <option>Mercedes</option>
+                </select>
+            </div>
+
+            <div class="dp-dropdown-wrapper">
+                <select class="dp-custom-dropdown">
+                    <option>Red</option>
+                    <option>Yellow</option>
+                    <option>Green</option>
+                    <option>And</option>
+                    <option>Blue</option>
+                </select>
+            </div>
+
+            <div class="dp-dropdown-wrapper">
+                <select class="dp-custom-dropdown">
+                    <option>Crows</option>
+                    <option>Ravens</option>
+                </select>
+            </div>
+            
+        </form>
 
         <script>
             // Javascript  
 
+            // Initialise all the custom dropdows
             document.querySelectorAll("select.dp-custom-dropdown").forEach((dropdown, index) => {
+                // take the pre-selected option and set the css value to provide access to it via stylesheets
                 dropdown.style.setProperty("--value", JSON.stringify(dropdown.selectedOptions[0].text));
 
+                // when we click the dropdown, set the select size to the children length
+                // this makes the select box behave like a list select box 
                 dropdown.onfocus = (event) => {
                     event.target.size = dropdown.children.length;
                 };
 
+                // when the dropdown loses focus return it to regular dropdown selector styling
+                // by setting the size to zero
                 dropdown.onblur = (event) => {
                     event.target.size = 0;
                 };
 
+                // when a selection is made, reset the select box to only show one item
+                // trigger the blur to de-focus the element
+                // set the css style variable to the selected value on the dropdown
                 dropdown.onchange = (event) => {
                     event.target.size=1; 
                     event.target.blur(); 
@@ -49,9 +79,5 @@
                 };
             });
         </script>
-
-        <!-- fontawesome for the chevron icon -->
-        <script src="https://kit.fontawesome.com/29bb0bf26c.js" crossorigin="anonymous"></script>
-
     </body>
 </html>
