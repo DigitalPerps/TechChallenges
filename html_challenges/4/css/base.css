@@ -80,3 +80,14 @@
     margin-top: 18px;
     font-size: 16px;
 }
+
+.dp-panel.dp-active {
+    border: 3px solid rgb(72,124,246);
+    box-shadow: 5px 10px black;
+}
+
+.dp-panel.dp-active button.dp-panel-btn {
+    background-color: rgb(72,124,246);
+    border-color: rgb(72,124,246);
+    color: white;
+}
