@@ -7,3 +7,4 @@ Log
 - Merged exercise 1b
 - Merged exercise 2
 - Fixed a problem with exercise 2
+- Merged exercise 3
