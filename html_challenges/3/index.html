@@ -8,9 +8,10 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Exercise 3 - Custom styled drop down</title>
-        <meta name="description" content="Digital Purpose Tech Challenge Exercise 2">
+        <meta name="description" content="Digital Purpose Tech Challenge Exercise 3">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+        
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css"> <!-- YUI reset stylesheet -->
         <link rel="stylesheet" type="text/css" href="css/base.css">
     </head>
     <body>
@@ -19,34 +20,38 @@
         <![endif]-->
 
         <div class="dp-dropdown-wrapper">
-            <select class="dp-custom-dropdown" value="1">
-                <!-- <option value="1">Tesla</option> -->
-                <option id="unique" value="1">Toyota</option> <!-- TODO: Raise with PM re: number 1 car maker -->
-                <option id="unique" value="2">Volvo</option>
-                <option id="unique" value="3">Mercedes</option>
+            <select class="dp-custom-dropdown">
+                <option value="0">Tesla</option>
+                <option value="1" selected>Toyota</option> <!-- TODO: Raise with PM re: number 1 car maker -->
+                <option value="2">Volvo</option>
+                <option value="3">Mercedes</option>
             </select>
         </div>
-        
-        <script src="https://kit.fontawesome.com/29bb0bf26c.js" crossorigin="anonymous"></script>
 
         <script>
-            // Javascript 
+            // Javascript  
 
-            var clearSelectedOption = () => {
-                document.querySelectorAll('option.dp-selected').forEach((value, key) => {
-                    value.classList.remove("dp-selected");
-                });
-            };
+            document.querySelectorAll("select.dp-custom-dropdown").forEach((dropdown, index) => {
+                dropdown.style.setProperty("--value", JSON.stringify(dropdown.selectedOptions[0].text));
 
-            var selectOption = (value) => {
-                var selected = document.querySelector('option[value="'+ value +'"]');
-                selected.classList.add('dp-selected');
-            };
+                dropdown.onfocus = (event) => {
+                    event.target.size = dropdown.children.length;
+                };
 
-            document.querySelector('select.dp-custom-dropdown').addEventListener('change', event => {
-                clearSelectedOption();
-                selectOption(event.target.value);
+                dropdown.onblur = (event) => {
+                    event.target.size = 0;
+                };
+
+                dropdown.onchange = (event) => {
+                    event.target.size=1; 
+                    event.target.blur(); 
+                    event.target.style.setProperty("--value", JSON.stringify(event.target.selectedOptions[0].text));
+                };
             });
         </script>
+
+        <!-- fontawesome for the chevron icon -->
+        <script src="https://kit.fontawesome.com/29bb0bf26c.js" crossorigin="anonymous"></script>
+
     </body>
 </html>

@@ -1,72 +1,72 @@
 body {
-    padding: 50px;
+    padding: 50px; /* lazily positioning the widget */
 }
 
-select.dp-custom-dropdown {
-    font-size: large;
-    border: 1px solid #999;
-    outline-style: none;
-    color: rgb(53, 53, 53);
-    background-color: white;
-    cursor: pointer;
-}
-
-.dp-custom-dropdown > option {
-    position: relative;
-    color: rgb(53, 53, 53);
-    background-color: white;
-    border: 1px solid #999;
-    cursor: pointer;
-}
-
-/*
-#unique {
-    background-color: black;
-}
-#unique:hover {
-    background-color: red;
-}
-#unique::selection {
-    background-color: red;
-}
-
-.dp-custom-dropdown > option.dp-selected {
-}
-*/
-
-/* .dp-custom-dropdown > option:hover { */
-/*     background-color: #999; */
-/* } */
-
-.dp-custom-dropdown:focus-visible {
-    border: 1px solid #999;
-    cursor: pointer;
-}
-
+/* a wrapper for the browser's standard select box */
 .dp-dropdown-wrapper {
     position: relative;
     display: inline-block;
     padding: 0;
     overflow: hidden;
-    width: fit-content;
+
+    width: 112px;
+    max-height: calc(5 * 23px);
+
+    border: 1px solid #999;
+
+    cursor: pointer;
 }
 
+/* the chevron we will place over the standard select box arrow */
 .dp-dropdown-wrapper::after {    
-    display: flex;
+    display: block;
     position: absolute;
-    top: 1px;
-    right: 1px;
-    bottom: 1px;
-    width: 17px;
-    text-align: left;
-    pointer-events: none;
+
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    content: "\f078";
+    content: "\f078"; /* chevron icon */
+    text-align: left;
+
+    top: 4px;
+    right: 2px;
+    width: 17px;
+    
     color: rgb(53, 53, 53);
-    align-items: flex-start;
-    align-content: flex-start;
-    flex-direction: column;
     background-color: white;
-    justify-content: center;
+
+    pointer-events: none; /* this is just a cosmetic mask, let the clicks pass through */
+}
+
+/* dropdown styling */
+select.dp-custom-dropdown {
+    font-size: large;
+    border: none;
+    outline-style: none;
+    color: rgb(53, 53, 53);
+    background-color: white;
+    width: calc(100% + 20px); /* supersticiously force the width wider than the wrapper to hide the default arrow */
+}
+
+/* this is the style used when the dropdown changes "modes" thanks to our html property manipulation via JS */
+select.dp-custom-dropdown:focus {
+    border-radius: 0 !important;
+    cursor: pointer;
+    overflow: auto;
+    margin-top: 23px;
+}
+
+/* show a fake "placeholder text" of the current value, since our dropdown box has become a franken- 
+        multi-select box, allowing us more styling options, with full select box functionality */
+select.dp-custom-dropdown:focus::before {
+    display: block;
+    content: var(--value, "Select");
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    pointer-events: none;
+}
+
+select.dp-custom-dropdown > option {
+    color: rgb(53, 53, 53);
+    background-color: white;
 }
