@@ -8,3 +8,4 @@ Log
 - Merged exercise 2
 - Fixed a problem with exercise 2
 - Merged exercise 3
+- Merged exercise 4
